@@ -1,6 +1,6 @@
 With this modification, you can now use the style attribute in your shortcode, like this:
 
-```php
+```html
 [button href="#" style="primary"]Primary Button[/button]
 ```
 
@@ -12,7 +12,7 @@ This will produce the following output:
 
 And if you don't specify the style attribute, the button will have the default class:
 
-```php
+```html
 [button href="#" style=""]Default Button[/button]
 ```
 
