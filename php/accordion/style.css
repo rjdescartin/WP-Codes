@@ -1,1 +1,57 @@
+.accordion {
+    background-color: #ece3a9;
+    color: #000;
+    cursor: pointer;
+    padding: 20px;
+    padding-right: 50px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #fff;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    font-family: 'museo-sans',sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+}
 
+.accordion:after {
+    content: '\2b';
+    font-family: 'Font Awesome 6 Pro';
+    font-size: inherit;
+    font-weight: 300;
+    color: #000;
+    position: absolute;
+    right: 20px;
+}
+
+.accordion.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.accordion + .panel {
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 10px;
+    max-height: 0;
+}
+
+.accordion + .panel:last-of-type {
+    margin-bottom: 32px;
+}
+
+.accordion + .panel .panel-content {
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+@media only screen and (max-width: 640px){
+    .accordion {
+        font-size: 16px;
+    }
+
+    .accordion + .panel {
+        font-size: 16px;
+    }
+}
