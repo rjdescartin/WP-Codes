@@ -1,7 +1,7 @@
 Use the shortcode like this
 
 ```html
-[accordion label="Accordion Title"]Accordion Description[/button]
+[accordion label="Accordion Title"]Accordion Description[/accordion]
 ```
 
 This will produce the following output:
