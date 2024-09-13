@@ -1,6 +1,8 @@
 /*============================ *\
  ACCORDION SCRIPT
 * ============================ */
+$("p > .accordion").unwrap();
+
 $(".accordion").click(function(){
     $(".accordion").removeClass("active"); // remove active class from all accordions
     $(".accordion").next().css('max-height', '0'); // set max-height to 0 for all accordions
