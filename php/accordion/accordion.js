@@ -2,6 +2,7 @@
  ACCORDION SCRIPT
 * ============================ */
 $("p > .accordion").unwrap();
+$(".accordion + .panel + br").remove();
 
 $(".accordion").click(function(){
     $(".accordion").removeClass("active"); // remove active class from all accordions
