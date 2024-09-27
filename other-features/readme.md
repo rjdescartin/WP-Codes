@@ -13,5 +13,5 @@
 ```
 **REFERENCES:**
 
-- Fancybox: <a href="https://fancyapps.com/fancybox/" target="_blank">https://fancyapps.com/fancybox/</a>
+- Fancybox: https://fancyapps.com/fancybox/
 - Slick Slider: https://kenwheeler.github.io/slick/
