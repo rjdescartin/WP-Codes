@@ -1,40 +1,44 @@
 .accordion {
-    background-color: #ece3a9;
-    color: #000;
-    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    width: 100%;
     padding: 20px;
     padding-right: 50px;
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    -webkit-transition: .4s;
+         -o-transition: .4s;
+            transition: .4s;
     text-align: left;
+    color: #000;
+    border: none;
+    border-bottom: 2px solid #FFF;
     outline: none;
-    transition: 0.4s;
-    font-family: 'museo-sans',sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    position: relative;
+    background-color: #ECE3A9;
 }
 
+
 .accordion:after {
-    content: '\2b';
-    font-family: 'Font Awesome 6 Pro';
+    font-family: "Font Awesome 6 Pro";
     font-size: inherit;
     font-weight: 300;
-    color: #000;
     position: absolute;
     right: 20px;
+    content: "\2b";
+    color: #000;
 }
 
 .accordion.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: "\2796";
 }
 
 .accordion + .panel {
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    margin-bottom: 10px;
     max-height: 0;
+    margin-bottom: 10px;
+    -webkit-transition: max-height .2s ease-out;
+         -o-transition: max-height .2s ease-out;
+            transition: max-height .2s ease-out;
 }
 
 .accordion + .panel:last-of-type {
@@ -47,8 +51,9 @@
 
 .accordion + .panel .panel-content {
     padding: 20px;
-    background-color: #f7f7f7;
+    background-color: #F7F7F7;
 }
+
 
 @media only screen and (max-width: 640px){
     .accordion {
