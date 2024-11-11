@@ -168,3 +168,23 @@ $(document).ready(function() {
         }
     });
 });
+
+/* ============================ *\
+    WRAP CONSECUTIVE .button 
+    ELEMENTS WITH 
+    <div class="button-group"></div>
+\* ============================ */
+$(document).ready(function () {
+    // Find all consecutive .button elements
+    $('a.button').each(function() {
+        // Check if this element is not already wrapped in a .button-group
+        if (!$(this).parent().hasClass('button-group')) {
+            // Collect consecutive .button elements
+            var $buttons = $(this).nextUntil(':not(.button)').addBack();
+            // Wrap in .button-group if there is more than one button
+            if ($buttons.length > 1) {
+                $buttons.wrapAll('<div class="button-group"></div>');
+            }
+        }
+    });
+});
