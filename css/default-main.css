@@ -891,7 +891,6 @@ h6:first-child,
 
 .mobile__nav.zindex {
     z-index: 99999!important;
-
     -webkit-transition: .3s ease-in-out;
         -o-transition: .3s ease-in-out;
             transition: .3s ease-in-out;
@@ -914,7 +913,7 @@ h6:first-child,
     position: relative;
 }
 
-.mobile__nav  ul li.hidden > a {
+.mobile__nav ul li.hidden > a {
     visibility: hidden;
 }
 
@@ -928,11 +927,11 @@ h6:first-child,
     font-weight: 500;
 }
 
-.mobile__nav  ul li a:hover {
+.mobile__nav ul li a:hover {
     opacity: .7;
 }
 
-.mobile__nav  ul li.menu-item-has-children a::after {
+.mobile__nav ul li.menu-item-has-children a::after {
     font-family: 'Font Awesome 6 Pro';
     font-size: 15px;
     font-weight: 700;
@@ -946,7 +945,7 @@ h6:first-child,
     color: #fff;
 }
 
-.mobile__nav  ul li a i {
+.mobile__nav ul li a i {
     font-size: 12px;
     font-weight: 700;
     margin-left: 4px;
@@ -955,7 +954,7 @@ h6:first-child,
             transition: .3s ease-in-out;
 }
 
-.mobile__nav  ul li a.active i {
+.mobile__nav ul li a.active i {
     -webkit-transition: .3s ease-in-out;
         -o-transition: .3s ease-in-out;
             transition: .3s ease-in-out;
@@ -964,13 +963,13 @@ h6:first-child,
             transform: rotate(180deg);
 }
 
-.mobile__nav  ul li .sub-menu {
+.mobile__nav ul li .sub-menu {
     position: fixed;
     z-index: 5;
     top: 0;
     right: -240px;
     overflow: auto;
-    width: 239px;
+    width: 240px;
     height: 100%;
     -webkit-transition: .3s ease-in-out;
         -o-transition: .3s ease-in-out;
@@ -978,7 +977,7 @@ h6:first-child,
     background: #222;
 }
 
-.mobile__nav  ul li .sub-menu.visible {
+.mobile__nav ul li .sub-menu.visible {
     -webkit-transition: .3s ease-in-out;
         -o-transition: .3s ease-in-out;
             transition: .3s ease-in-out;
@@ -987,18 +986,18 @@ h6:first-child,
             transform: translateX(-240px);
 }
 
-.mobile__nav  ul li .sub-menu li.nav__back a {
+.mobile__nav ul li .sub-menu li.nav__back a {
     color: #fff;
     background: #000;
 }
 
-.mobile__nav  ul li .sub-menu li.nav__back a i {
+.mobile__nav ul li .sub-menu li.nav__back a i {
     font-size: 15px;
     margin-right: 7px;
 }
 
-.mobile__nav  ul li .sub-menu li a::after,
-.mobile__nav  ul li .sub-menu li a::before {
+.mobile__nav ul li .sub-menu li a::after,
+.mobile__nav ul li .sub-menu li a::before {
     display: none;
 }
 
