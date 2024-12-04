@@ -137,48 +137,47 @@ $(document).ready(function() {
 });
 
 /* ------------------------------------------- *\
-
 ---> HTML:
     <div class="header__placeholder"></div>
     <header class="main__header" role="banner"></header>
 
 ---> CSS:
-@-webkit-keyframes smoothScroll {
-    0% {
-        -webkit-transform: translateY(-40px);
-                transform: translateY(-40px);
+    @-webkit-keyframes smoothScroll {
+        0% {
+            -webkit-transform: translateY(-40px);
+                    transform: translateY(-40px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+                    transform: translateY(0px);
+        }
     }
-    100% {
-        -webkit-transform: translateY(0px);
-                transform: translateY(0px);
+    
+    @keyframes smoothScroll {
+        0% {
+            -webkit-transform: translateY(-40px);
+                    transform: translateY(-40px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+                    transform: translateY(0px);
+        }
     }
-}
+    
+    .main__header {
+        display: block;
+        position: absolute;
+        top: 0;
+        z-index: 999;
+        left: 0;
+        right: 0;
+    }
 
-@keyframes smoothScroll {
-    0% {
-        -webkit-transform: translateY(-40px);
-                transform: translateY(-40px);
+    .main__header.sticky {
+        position: fixed;
+        -webkit-animation: smoothScroll .5s forwards;
+                animation: smoothScroll .5s forwards;
     }
-    100% {
-        -webkit-transform: translateY(0px);
-                transform: translateY(0px);
-    }
-}
-
-.main__header {
-    display: block;
-    position: absolute;
-    top: 0;
-    z-index: 999;
-    left: 0;
-    right: 0;
-}
-
-.main__header.sticky {
-    position: fixed;
-    -webkit-animation: smoothScroll .5s forwards;
-            animation: smoothScroll .5s forwards;
-}
 
 \* ------------------------------------------- */
 
