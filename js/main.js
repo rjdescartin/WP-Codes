@@ -103,38 +103,84 @@ $(".accordion").click(function(){
 /*============================ *\
  STICKY HEADER SCRIPT
 * ============================ */
+
 $(document).ready(function() {
-  $(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-
-    if(window.innerWidth > 980){
-        if (scroll >= 250) {
-          $("body").addClass("hideheader");
-        } else {
-          $("body").removeClass("hideheader");
-        }
-
-        if (scroll >= 300) {
-          $("body").addClass("sticky");
-        } else {
-          $("body").removeClass("sticky");
-        }
-    } else {
-        if (scroll >= 150) {
-          $("body").addClass("hideheader");
-        } else {
-          $("body").removeClass("hideheader");
-        }
-
-        if (scroll >= 200) {
-          $("body").addClass("sticky");
-        } else {
-          $("body").removeClass("sticky");
-        }
+    // Function to update the height of .header__placeholder
+    function updatePlaceholderHeight() {
+        var mainHeaderHeight = $('.main__header').outerHeight();
+        $('.header__placeholder').css('height', mainHeaderHeight + 'px');
     }
 
-  });
+    // Update height immediately on DOM-ready
+    updatePlaceholderHeight();
+
+    // Update height on window load to handle any delayed content
+    $(window).on('load', function() {
+        updatePlaceholderHeight();
+    });
+
+    // Update height on window resize
+    $(window).on('resize', function() {
+        updatePlaceholderHeight();
+    });
+
+    // Add sticky class based on scroll position
+    $(window).on('scroll', function() {
+		var scroll = $(window).scrollTop();
+		
+		if (scroll >= 250) {
+          $('.main__header').addClass("sticky");
+        } else {
+          $('.main__header').removeClass("sticky");
+        }
+    });
 });
+
+/* ------------------------------------------- *\
+
+---> HTML:
+    <div class="header__placeholder"></div>
+    <header class="main__header" role="banner"></header>
+
+---> CSS:
+@-webkit-keyframes smoothScroll {
+    0% {
+        -webkit-transform: translateY(-40px);
+                transform: translateY(-40px);
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+
+@keyframes smoothScroll {
+    0% {
+        -webkit-transform: translateY(-40px);
+                transform: translateY(-40px);
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+
+.main__header {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    left: 0;
+    right: 0;
+}
+
+.main__header.sticky {
+    position: fixed;
+    -webkit-animation: smoothScroll .5s forwards;
+            animation: smoothScroll .5s forwards;
+}
+
+\* ------------------------------------------- */
 
 /* ============================ *\
     SCROLL TO TOP
