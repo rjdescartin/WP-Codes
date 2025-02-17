@@ -7,7 +7,7 @@ With this modification, you can now use the style attribute in your shortcode, l
 This will produce the following output:
 
 ```html
-<a href="#" class="button button-primary">Primary Button</a>
+<a href="#" class="button primary">Primary Button</a>
 ```
 
 And if you don't specify the style attribute, the button will have the default class:
