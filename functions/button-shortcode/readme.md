@@ -1,7 +1,7 @@
 With this modification, you can now use the style attribute in your shortcode, like this:
 
 ```html
-[button href="#" style="primary"]Primary Button[/button]
+[button href="#" class="primary"]Primary Button[/button]
 ```
 
 This will produce the following output:
@@ -13,7 +13,7 @@ This will produce the following output:
 And if you don't specify the style attribute, the button will have the default class:
 
 ```html
-[button href="#" style=""]Default Button[/button]
+[button href="#"]Default Button[/button]
 ```
 
 This will produce:
