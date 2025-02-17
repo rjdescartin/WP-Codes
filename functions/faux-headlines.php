@@ -1,40 +1,35 @@
 <?php
-/* ============================ *\
-    FAUX HEADLINES
-\* ============================ */
+/**
+ * Custom Shortcodes for Headings (H1 to H6)
+ *
+ * This code registers shortcodes [h1] to [h6], replacing them with a <span> element.
+ * The span will have the corresponding heading class (h1, h2, etc.) and optionally additional classes.
+ *
+ * Usage:
+ * [h1]Sample Text[/h1] → <span class="h1">Sample Text</span>
+ * [h2 class="custom-class"]Sample Text[/h2] → <span class="h2 custom-class">Sample Text</span>
+ *
+ * Features:
+ * - Supports dynamic heading levels (H1 to H6).
+ * - Allows adding extra CSS classes via the "class" attribute.
+ * - Ensures clean and flexible shortcode implementation.
+ */
 
-// Shortcode for H1
-function custom_shortcode_h1($atts, $content = null) {
-    return '<p class="h1">' . $content . '</p>';
-}
-add_shortcode('h1', 'custom_shortcode_h1');
+function custom_shortcode_heading($atts, $content = null, $tag) {
+    // Set default attributes (empty class if not provided)
+    $atts = shortcode_atts(['class' => ''], $atts);
+    $extra_class = !empty($atts['class']) ? ' ' . esc_attr($atts['class']) : '';
 
-// Shortcode for H2
-function custom_shortcode_h2($atts, $content = null) {
-    return '<p class="h2">' . $content . '</p>';
+    // Return the formatted span element
+    return '<span class="' . esc_attr($tag) . $extra_class . '">' . do_shortcode($content) . '</span>';
 }
-add_shortcode('h2', 'custom_shortcode_h2');
 
-// Shortcode for H3
-function custom_shortcode_h3($atts, $content = null) {
-    return '<p class="h3">' . $content . '</p>';
+// Register shortcodes for H1 to H6 dynamically
+function register_heading_shortcodes() {
+    for ($i = 1; $i <= 6; $i++) {
+        add_shortcode("h$i", function($atts, $content = null) use ($i) {
+            return custom_shortcode_heading($atts, $content, "h$i");
+        });
+    }
 }
-add_shortcode('h3', 'custom_shortcode_h3');
-
-// Shortcode for H4
-function custom_shortcode_h4($atts, $content = null) {
-    return '<p class="h4">' . $content . '</p>';
-}
-add_shortcode('h4', 'custom_shortcode_h4');
-
-// Shortcode for H5
-function custom_shortcode_h5($atts, $content = null) {
-    return '<p class="h5">' . $content . '</p>';
-}
-add_shortcode('h5', 'custom_shortcode_h5');
-
-// Shortcode for H6
-function custom_shortcode_h6($atts, $content = null) {
-    return '<p class="h6">' . $content . '</p>';
-}
-add_shortcode('h6', 'custom_shortcode_h6');
+add_action('init', 'register_heading_shortcodes');
