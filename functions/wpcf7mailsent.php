@@ -6,7 +6,7 @@
   document.addEventListener('wpcf7mailsent', function(event) {
     
     // Redirect after form submission
-    if (event.detail.contactFormId === 'CF7_FORM_ID') {
+    if (event.detail.contactFormId == 'CF7_FORM_ID') {
       location.href = '<?php echo get_permalink(PAGE_ID); ?>';
     }
 
