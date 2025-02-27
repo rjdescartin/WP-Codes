@@ -1,54 +1,45 @@
 //MOBILE NAV JS
-$('.mobile__button').click(function(){
-    $('#page__wrap').addClass('active');
-    $('#page__wrap').addClass('fixed');
-    $('#page__wrap .overlay').addClass('is-visible');
-    $('.mobile__nav').addClass('visible');
-    setTimeout(function() {
-        $('.mobile__nav').addClass('zindex');
-    }, 500);
-    $('.mobile__nav .menu-mobile-menu-container').addClass('is-visible');
+$(document).ready(function () {
+    const $pageWrap = $('#page__wrap');
+    const $overlay = $pageWrap.find('.overlay');
+    const $mobileNav = $('.mobile__nav');
+    const $menuContainer = $('.mobile__nav .menu-mobile-menu-container');
+    const $menuItems = $('.mobile__nav__wrap .menu > li');
+    
+    function openNav() {
+        $pageWrap.addClass('active fixed');
+        $overlay.addClass('is-visible');
+        $mobileNav.addClass('visible');
 
-});
+        setTimeout(() => $mobileNav.addClass('zindex'), 500);
+        $menuContainer.addClass('is-visible');
+    }
 
-$('#page__wrap .overlay').click(function(){
-    $('.mobile__nav .menu-mobile-menu-container').removeClass('is-visible');
-    $('.mobile__nav').removeClass('zindex');
-    $('#page__wrap').removeClass('active');
-    $('#page__wrap .overlay').removeClass('is-visible');
-    $('.mobile__nav').removeClass('visible');
-    $('.mobile__nav .sub-menu').removeClass('visible');
-    $('.mobile__nav__wrap .menu > li').removeClass('hidden');
-    setTimeout(function() {
-        $('.mobile__nav').removeClass('zindex');
-        $('#page__wrap').removeClass('fixed');
-    }, 300);
-});
+    function closeNav() {
+        $menuContainer.removeClass('is-visible');
+        $mobileNav.removeClass('zindex visible');
+        $overlay.removeClass('is-visible');
+        $pageWrap.removeClass('active');
+        $('.mobile__nav .sub-menu').removeClass('visible');
+        $menuItems.removeClass('hidden');
 
-$('.mobile__nav .close').click(function(){
-    $('.mobile__nav .menu-mobile-menu-container').removeClass('is-visible');
-    $('.mobile__nav').removeClass('zindex');
-    $('#page__wrap').removeClass('active');
-    $('#page__wrap .overlay').removeClass('is-visible');
-    $('.mobile__nav').removeClass('visible');
-    $('.mobile__nav .sub-menu').removeClass('visible');
-    $('.mobile__nav__wrap .menu > li').removeClass('hidden');
-    setTimeout(function() {
-        $('.mobile__nav').removeClass('zindex');
-        $('#page__wrap').removeClass('fixed');
-    }, 300);
-});
+        setTimeout(() => $pageWrap.removeClass('fixed'), 300);
+    }
 
-$('.mobile__nav .menu-item-has-children > a').click(function(e) {
-    e.preventDefault();
-    $(this).next('.sub-menu').addClass('visible');
-    $('.mobile__nav__wrap .menu > li').addClass('hidden');
-});
+    $('.mobile__button').click(openNav);
+    $overlay.add('.mobile__nav .close').click(closeNav);
 
-$('.mobile__nav .nav__back').click(function(e) {
-    e.preventDefault();
-    $(this).parent().removeClass('visible');
-    $('.mobile__nav__wrap .menu > li').removeClass('hidden');
+    $('.mobile__nav .menu-item-has-children > a').click(function (e) {
+        e.preventDefault();
+        $(this).next('.sub-menu').addClass('visible');
+        $menuItems.addClass('hidden');
+    });
+
+    $('.mobile__nav .nav__back').click(function (e) {
+        e.preventDefault();
+        $(this).parent().removeClass('visible');
+        $menuItems.removeClass('hidden');
+    });
 });
 
 //END MOBILE NAV JS
