@@ -1040,18 +1040,64 @@ h6:first-child,
     margin-bottom: 0 !important;
 }
 
-input[type="text"],
-input[type="email"],
 textarea {
-    border: none;
+    font-family: "Barlow", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.7em;
     display: block;
     width: 100%;
-    font-family: 'museo-sans',sans-serif;
-    font-weight: 300;
-    color: #595959;
-    font-size: 16px;
-    padding: 15px 18px;
-    line-height: 1.25em;
+    height: 150px;
+    margin-top: 5px;
+    padding: 10px 15px;
+    color: #373F51;
+    border: none;
+    border-radius: 0;
+    background-color: #F7F7F7;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="week"],
+input[type="date"] {
+    font-family: "Barlow", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.7em;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px 15px;
+    color: #373F51;
+    border: none;
+    border-radius: 0;
+    background-color: #F7F7F7;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="email"]:focus,
+input[type="month"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="week"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    outline-color: #d46a1c;
 }
 
 input[type="submit"] {
