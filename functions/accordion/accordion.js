@@ -4,15 +4,23 @@
 $("p > .accordion").unwrap();
 $(".accordion + .panel + br").remove();
 
-$(".accordion").click(function(){
-    $(".accordion").removeClass("active"); // remove active class from all accordions
-    $(".accordion").next().css('max-height', '0'); // set max-height to 0 for all accordions
-    $(this).addClass("active"); // add active class to clicked accordion
+$(".accordion.active").each(function(){
     var content = $(this).next();
-    if(content.css("max-height") == "0px"){ // check if the max-height is 0, then open it
+    content.css('max-height', content.prop('scrollHeight'));
+});
+
+$(".accordion").click(function(){
+    // close all
+    $(".accordion").removeClass("active");
+    $(".accordion").next().css('max-height', '0');
+
+    // toggle clicked
+    $(this).addClass("active");
+    var content = $(this).next();
+    if(content.css("max-height") == "0px"){
         content.css('max-height', content.prop('scrollHeight'));
-    } else { // if the max-height is not 0 then close it
+    } else {
         content.css('max-height', '0');
-        $(".accordion").removeClass("active");
+        $(this).removeClass("active");
     }
 });
