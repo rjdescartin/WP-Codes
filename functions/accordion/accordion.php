@@ -15,15 +15,25 @@
  * @return string HTML output for the accordion component.
  */
 function custom_accordion_shortcode($atts, $content = null) {
-    // Extract the label attribute
+    // Extract the attributes
     $atts = shortcode_atts(array(
-        'label' => 'Section',
-    ), $atts);
+        'label'  => 'Section',
+        'active' => '', // default empty
+    ), $atts, 'accordion');
 
-    // Build the output
-    $output = '<button class="accordion">' . esc_html($atts['label']) . '</button>';
-    $output .= '<div class="panel"><div class="panel-content">' . do_shortcode($content) . '</div></div>';
+    // Check if active is set
+    $is_active = !empty($atts['active']) ? true : false;
+
+    // Add active class if set
+    $button_class = 'accordion' . ($is_active ? ' active' : '');
+
+    // If active, set inline style to open
+    $panel_style = $is_active ? 'style="max-height: 9999px;"' : '';
+
+    // Build output
+    $output  = '<button class="' . esc_attr($button_class) . '">' . esc_html($atts['label']) . '</button>';
+    $output .= '<div class="panel" ' . $panel_style . '><div class="panel-content">' . do_shortcode($content) . '</div></div>';
 
     return $output;
 }
-add_shortcode('accordion', 'custom_accordion_shortcode'); 
+add_shortcode('accordion', 'custom_accordion_shortcode');
